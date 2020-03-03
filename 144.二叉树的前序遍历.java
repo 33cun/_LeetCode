@@ -42,6 +42,8 @@
  * }
  */
 class Solution {
+
+    /** Recursive
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
 
@@ -67,6 +69,29 @@ class Solution {
         }
 
         return list;
+    }*/
+
+    /** Iteration */
+
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+
+        if (root == null) return result;
+        
+        Stack<TreeNode> stack = new Stack<>();
+
+        while (!stack.isEmpty() || root != null) {
+            while (root != null) {
+                stack.push(root);
+                result.add(root.val);
+                root = root.left;
+            }
+
+                root = stack.pop();
+                root = root.right;
+        }
+
+        return result;
     }
 }
 // @lc code=end
