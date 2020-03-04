@@ -45,13 +45,13 @@ class Solution {
 
     /** Recursive
     public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> list = new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
 
-        if (root == null) return list;
+        if (root == null) return result;
         
-        preorderTraversal(root, list);
+        preorderTraversal(root, result);
 
-        return list;
+        return result;
     }
 
     private List<Integer> preorderTraversal(TreeNode node, List<Integer> list) {
@@ -72,7 +72,6 @@ class Solution {
     }*/
 
     /** Iteration */
-
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
 

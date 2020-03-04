@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 /*
  * @lc app=leetcode.cn id=94 lang=java
  *
@@ -44,14 +41,16 @@ import java.util.List;
  * }
  */
 class Solution {
+
+    /** Recursive
     public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> list = new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
 
-        if (root == null) return list;
+        if (root == null) return result;
         
-        inorderTraversal(root, list);
+        inorderTraversal(root, result);
 
-        return list;
+        return result;
     }
 
     private List<Integer> inorderTraversal(TreeNode node, List<Integer> list) {
@@ -69,6 +68,29 @@ class Solution {
         }
 
         return list;
+    }*/
+
+    /** Iteration */
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        
+        if (root == null) return result;
+
+        TreeNode node = root;
+        Stack<TreeNode> stack = new Stack<>();
+
+        while (true) {
+            if (node != null) {
+                stack.push(node);
+                node = node.left;
+            } else if (stack.isEmpty()) {
+                return result;
+            } else {
+                node = stack.pop();
+                result.add(node.val);
+                node = node.right;
+            }
+        }
     }
 }
 // @lc code=end
